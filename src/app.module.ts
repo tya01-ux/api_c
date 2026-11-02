@@ -6,11 +6,13 @@ import { BooksService } from './books/books.service.js';
 import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { OrdersModule } from './books/orders/entities/order.module.js';
 import Joi from 'joi';
 
 @Module({
   imports: [
     BooksModule,
+    OrdersModule,
     ConfigModule.forRoot({
       isGlobal: true,
       validationSchema: Joi.object({
