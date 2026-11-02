@@ -35,15 +35,9 @@ export class BooksController {
     return this.booksService.create(book);
   }
 
-  // Mengupdate data buku berdasarkan id
   @Put(':id')
   updateBook(@Param('id') id: string, @Body() book: CreateBookDto) {
-    // logic untuk mengupdate data buku berdasarkan id
-    return (
-      this.booksService as BooksService & {
-        update(id: number, book: CreateBookDto): unknown;
-      }
-    ).update(Number(id), book);
+    return this.booksService.update(id, book);
   }
 
   // Menghapus data buku berdasarkan id
